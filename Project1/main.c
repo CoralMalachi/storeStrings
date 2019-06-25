@@ -4,34 +4,7 @@
 #include "linkedList.h"
 
 
-char* scan_line(char* line)
-{
-	int ch; //as getchar() returns `int`
 
-	if ((line = malloc(sizeof(char))) == NULL) //allocating memory
-	{
-		//checking if allocation was successful or not
-		printf("unsuccessful allocation");
-		exit(1);
-	}
-
-	line[0] = '\0';
-
-	for (int index = 0; ((ch = getchar()) != '\n') && (ch != EOF); index++)
-	{
-		if ((line = realloc(line, (index + 2) * sizeof(char))) == NULL)
-		{
-			//checking if reallocation was successful or not
-			printf("unsuccessful reallocation");
-			exit(1);
-		}
-
-		line[index] = (char)ch; //type casting `int` to `char`
-		line[index + 1] = '\0'; //inserting null character at the end
-	}
-
-	return line;
-}
 int main(void)
 {
 	node* head = NULL;
